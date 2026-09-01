@@ -19,6 +19,7 @@ import { StudentModule } from './student/student.module';
       useFactory: (configService: ConfigService) => ({
         type: 'mongodb',
         url: configService.get<string>('MONGODB_URI'),
+        database: 'nest-graphql',
         driver: mongodb,
         ssl: true,
         tls: true,
