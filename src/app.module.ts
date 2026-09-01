@@ -32,6 +32,7 @@ import { StudentModule } from './student/student.module';
       driver: ApolloDriver,
       autoSchemaFile: true,
       playground: false,
+      introspection: true,
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
     }),
     LessonModule,
