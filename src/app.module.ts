@@ -1,3 +1,4 @@
+import * as mongodb from 'mongodb';
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
@@ -18,6 +19,7 @@ import { StudentModule } from './student/student.module';
       useFactory: (configService: ConfigService) => ({
         type: 'mongodb',
         url: configService.get<string>('MONGODB_URI'),
+        driver: mongodb,
         synchronize: true,
         useUnifiedTopology: true,
         autoLoadEntities: true,

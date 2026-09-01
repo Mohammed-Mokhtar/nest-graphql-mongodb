@@ -1,4 +1,5 @@
-﻿import * as dns from 'node:dns';
+import * as dns from 'node:dns';
+import 'mongodb';
 import { NestFactory } from '@nestjs/core';
 import { ExpressAdapter } from '@nestjs/platform-express';
 import { ValidationPipe } from '@nestjs/common';
