@@ -8,6 +8,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { LessonModule } from './lesson/lesson.module';
 import { StudentModule } from './student/student.module';
 
+import { APP_FILTER } from '@nestjs/core';
+import { NotFoundExceptionFilter } from './not-found-exception.filter';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -38,6 +41,12 @@ import { StudentModule } from './student/student.module';
     }),
     LessonModule,
     StudentModule,
+  ],
+  providers: [
+    {
+      provide: APP_FILTER,
+      useClass: NotFoundExceptionFilter,
+    },
   ],
 })
 export class AppModule {}
