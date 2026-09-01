@@ -1,12 +1,9 @@
-import * as dns from 'node:dns';
 import 'mongodb';
 import { NestFactory } from '@nestjs/core';
 import { ExpressAdapter } from '@nestjs/platform-express';
 import { ValidationPipe } from '@nestjs/common';
 import express, { Express, Request, Response } from 'express';
 import { AppModule } from '../src/app.module';
-
-dns.setServers(['8.8.8.8', '1.1.1.1']);
 
 const server: Express = express();
 let isInitialized = false;
